@@ -1,24 +1,18 @@
-<div>
-    Click on Any Number
-	<span style="width: 20px;" ng-repeat="key in numberArray">
-	  <button ng-click="numberClick(key)" id="{{ key }}" >{{ key }}</button>
-	</span>
+
+
+<div style="margin-left: 20px;">
+	{{ charString }}
 </div>
+<textarea style="margin-left: 100px;">{{ totalValue }}</textarea><br /><br />
 
-<br /><br />
+<span ng-repeat="key in numberArray">
+  <button style="width: 50px; margin-left: 20px; margin-top: 10px; top: {{ Math.floor(key/3)*50 }}px;" ng-click="numberClick(key)" id="{{ key }}" >{{ key }}</button><br ng-if="key%3 == 0 && key > 1"/>
+</span>
 
-<div>
-    Click on Any Operation
-	<span style="width: 20px;" ng-repeat="key in operationArray">
-	  <button ng-click="operationClick(key)" id="{{ key.value }}" >{{ key.sign }}</button>
-	</span>
-</div>
+<span ng-repeat="key in operationArray">
+ 	<button style="width: 50px; margin-left: 20px; margin-top: 10px; top: 150px;" ng-click="operationClick(key)" id="{{ key.value }}" >{{ key.sign }}</button>
+</span>
 
-<div>
-    <button ng-click="equalClick()" id="equal" >=</button>
-</div>
-
-<div>Result:   {{ totalValue }}</div>
+<button style="width: 50px; margin-left: 20px; margin-top: 10px; top: 0px;" ng-click="equalClick()" id="equal" >=</button>
 
 
-<div ></div>

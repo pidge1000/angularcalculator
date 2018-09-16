@@ -11,9 +11,12 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('View1Ctrl', ['$scope', function($scope) {
   
+  $scope.Math = window.Math // use Math operator in Template
+
   $scope.totalValue = 0;
   $scope.storeValue = []
   $scope.finalArray = []
+  $scope.charString = ''
   $scope.numberArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   $scope.operationArray = [{value: 1, sign: '+'}, {value: 2, sign: '-'}, {value: 3, sign: '*'}, {value: 4, sign: '/'}]
   
@@ -28,6 +31,7 @@ angular.module('myApp.view1', ['ngRoute'])
   	}
   	
   	$scope.number = number;
+  	$scope.charString = $scope.charString + value
   }
 
   $scope.operationClick = function(key) {
@@ -35,6 +39,7 @@ angular.module('myApp.view1', ['ngRoute'])
   		$scope.storeValue = []
 	  	$scope.operator = key.value
 	  	$scope.finalArray.push($scope.number)
+	  	$scope.charString = $scope.charString + ' ' + key.sign + ' '
   	}
 
   	$scope.equalClick = function() {
@@ -52,8 +57,8 @@ angular.module('myApp.view1', ['ngRoute'])
 		$scope.finalArray = []
 		$scope.number = total
 		$scope.totalValue = total
-
-		//console.log($scope.totalValue)
+		$scope.charString = total
+		
 	}
 
 	
